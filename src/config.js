@@ -11,6 +11,6 @@ module.exports = {
   yookassaApiKey: process.env.YOOKASSA_API_KEY || '',
   paymentReturnUrl: process.env.PAYMENT_RETURN_URL || 'https://t.me/your_bot',
   guidePrice: Number(process.env.GUIDE_PRICE || '99.00'),
-  adminIds: adminIdsFromEnv.length > 0 ? adminIdsFromEnv : ['389411230', '265485424'],
+  adminIds: adminIdsFromEnv,
   storageRoot: path.join(__dirname, '..', 'data'),
 };
