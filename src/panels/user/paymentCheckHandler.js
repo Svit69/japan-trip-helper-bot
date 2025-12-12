@@ -10,7 +10,7 @@ class PaymentCheckHandler {
   }
 
   async handlePaymentCheck(ctx) {
-    if (ctx.answerCbQuery) {
+    if (ctx.updateType === 'callback_query') {
       await ctx.answerCbQuery();
     }
     this.#userService.upsertUser(ctx.from);
