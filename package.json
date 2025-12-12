@@ -1,0 +1,22 @@
+{
+  "name": "japan-trip-helper-bot",
+  "version": "1.0.0",
+  "description": "Telegram бот с выдачей PDF-гайда и оплатой через ЮKassa",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "telegram",
+    "yookassa",
+    "bot"
+  ],
+  "author": "Japan Trip Helper Bot",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "telegraf": "^4.16.3",
+    "uuid": "^13.0.0"
+  }
+}
