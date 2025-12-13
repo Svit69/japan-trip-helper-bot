@@ -28,6 +28,7 @@ class UserService {
       lastName: user.last_name || '',
       guideDelivered: existing.guideDelivered || false,
       lastPaymentId: existing.lastPaymentId || null,
+      consentAccepted: existing.consentAccepted || false,
     };
     this.#storage.write(data);
     return data.users[user.id];
@@ -44,6 +45,7 @@ class UserService {
         lastName: '',
         guideDelivered: false,
         lastPaymentId: null,
+        consentAccepted: false,
       };
     }
     const payment = {
@@ -87,6 +89,19 @@ class UserService {
   getUser(userId) {
     const data = this.#storage.read();
     return data.users?.[userId] || null;
+  }
+
+  markConsentAccepted(userId) {
+    const data = this.#storage.read();
+    if (!data.users?.[userId]) return null;
+    data.users[userId].consentAccepted = true;
+    this.#storage.write(data);
+    return data.users[userId];
+  }
+
+  hasConsent(userId) {
+    const data = this.#storage.read();
+    return Boolean(data.users?.[userId]?.consentAccepted);
   }
 
   getUsers() {
